@@ -45,11 +45,24 @@ public class PriceServiceController {
 
 
 	
+    @ApiParam
     @RequestMapping(value = "getPrice", method = RequestMethod.GET)
+    @ApiOperation(value = "Determina la tarifa y el precio final a aplicar en base a una fecha dada, un identificador de producto y un identificador de cadena.",
+            httpMethod = "GET",
+            produces = "application/json")
+    @ApiResponses({@ApiResponse(code = 200, message = "Ok (Si se pudo determinar la tarifa y el precio final con exito)",
+            response = ResponsePriceBean.class),
+            @ApiResponse(code = 400, message = "Error en parámetros de entrada (fecha, producto, cadena)",
+                    response = ResponsePriceBean.class),
+            @ApiResponse(code = 500, message = "No se puede acceder al servicio para obtener la tarifa y el precio final a aplicar / Error general",
+                    response = ResponsePriceBean.class)})	
 	public ResponseEntity<ResponsePriceBean> getPrice(
-	        @RequestParam(value="dateApply",required=true) String dateApply,
-	        @RequestParam(value="productId",required=true) Integer productId,
-	        @RequestParam(value="brandId",required=true) Integer brandId) { 
+	        @ApiParam(required = true, value = "Fecha a aplicar", name = "dateApply")
+	        @Valid @RequestParam(value="dateApply",required=true) String dateApply,
+	        @ApiParam(required = true, value = "Identificador de producto", name = "productId")
+	        @Valid @RequestParam(value="productId",required=true) Integer productId,
+	        @ApiParam(required = true, value = "Identificador de cadena", name = "brandId")
+	        @Valid @RequestParam(value="brandId",required=true) Integer brandId) { 
 
 		logger.info("\"[getPrice] BEGIN <==");
 		ResponsePriceBean responsePrice = new ResponsePriceBean();
