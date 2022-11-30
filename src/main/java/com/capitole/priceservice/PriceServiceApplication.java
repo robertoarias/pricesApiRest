@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
+@ComponentScan
 public class PriceServiceApplication extends SpringBootServletInitializer implements ApplicationRunner{
 
 	public static void main(String[] args) {
