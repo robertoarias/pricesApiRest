@@ -7,6 +7,6 @@ import com.capitole.priceservice.model.ResponsePriceBean;
 
 public interface PricesService {
 
-	public ResponsePriceBean getPriceService(String fecha, Integer producto, Integer cadena) throws ParseException;
+	public ResponsePriceBean getPriceService(String dateApply, Integer productId, Integer brandId) throws ParseException;
 
 }
