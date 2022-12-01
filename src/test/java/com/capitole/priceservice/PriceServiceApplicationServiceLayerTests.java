@@ -35,9 +35,9 @@ class PriceServiceApplicationServiceLayerTests {
 	@Test
 	public void getPriceByFechaProductoCadena_Test01_14_06_10_00() throws Exception {
 		
-		String fechaAplicar = "2020-06-14 10:00:00";
-		Integer cadenaAplicar = 1;
-		Integer productoAplicar = 35455;
+		String dateApply = "2020-06-14 10:00:00";
+		Integer brandApply = 1;
+		Integer productApply = 35455;
 		
 		List<PricesBean> priceBeanList = new ArrayList<PricesBean>(); 
 		
@@ -52,12 +52,12 @@ class PriceServiceApplicationServiceLayerTests {
 		
 		priceBeanList.add(pricesBean);
 
-	    Mockito.when(priceBeanRepository.findByPrice(fechaAplicar, productoAplicar, cadenaAplicar))
+	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
-		ResponsePriceBean priceServiceFound = pricesService.getPriceService(fechaAplicar, productoAplicar, cadenaAplicar);			
-		Integer valorEsperadoTarifa = 1;
-		assertEquals("La tarifa devuelta no es correcta", valorEsperadoTarifa, priceServiceFound.getPriceList());
+		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
+		Integer priceListExpectedValue = 1;
+		assertEquals("La tarifa devuelta no es correcta", priceListExpectedValue, priceServiceFound.getPriceList());
 
 	}
 	
@@ -65,9 +65,9 @@ class PriceServiceApplicationServiceLayerTests {
 	@Test
 	public void getPriceByFechaProductoCadena_Test02_14_06_16_00() throws Exception {
 		
-		String fechaAplicar = "2020-06-14 16:00:00";
-		Integer cadenaAplicar = 1;
-		Integer productoAplicar = 35455;
+		String dateApply = "2020-06-14 16:00:00";
+		Integer brandApply = 1;
+		Integer productApply = 35455;
 		
 		List<PricesBean> priceBeanList = new ArrayList<PricesBean>(); 
 		
@@ -93,12 +93,12 @@ class PriceServiceApplicationServiceLayerTests {
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(fechaAplicar, productoAplicar, cadenaAplicar))
+	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
-		ResponsePriceBean priceServiceFound = pricesService.getPriceService(fechaAplicar, productoAplicar, cadenaAplicar);			
-		Integer valorEsperadoTarifa = 2;
-		assertEquals("La tarifa devuelta no es correcta", valorEsperadoTarifa, priceServiceFound.getPriceList());
+		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
+		Integer priceListExpectedValue = 2;
+		assertEquals("La tarifa devuelta no es correcta", priceListExpectedValue, priceServiceFound.getPriceList());
 
 	}
 
@@ -106,9 +106,9 @@ class PriceServiceApplicationServiceLayerTests {
 	@Test
 	public void getPriceByFechaProductoCadena_Test03_14_06_21_00() throws Exception {
 		
-		String fechaAplicar = "2020-06-14 21:00:00";
-		Integer cadenaAplicar = 1;
-		Integer productoAplicar = 35455;
+		String dateApply = "2020-06-14 21:00:00";
+		Integer brandApply = 1;
+		Integer productApply = 35455;
 		
 		List<PricesBean> priceBeanList = new ArrayList<PricesBean>(); 
 		
@@ -123,12 +123,12 @@ class PriceServiceApplicationServiceLayerTests {
 		
 		priceBeanList.add(pricesBean);
 
-	    Mockito.when(priceBeanRepository.findByPrice(fechaAplicar, productoAplicar, cadenaAplicar))
+	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
-		ResponsePriceBean priceServiceFound = pricesService.getPriceService(fechaAplicar, productoAplicar, cadenaAplicar);			
-		Integer valorEsperadoTarifa = 1;
-		assertEquals("La tarifa devuelta no es correcta", valorEsperadoTarifa, priceServiceFound.getPriceList());
+		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
+		Integer priceListExpectedValue = 1;
+		assertEquals("La tarifa devuelta no es correcta", priceListExpectedValue, priceServiceFound.getPriceList());
 
 	}
 
@@ -137,9 +137,9 @@ class PriceServiceApplicationServiceLayerTests {
 	@Test
 	public void getPriceByFechaProductoCadena_Test04_15_06_10_00() throws Exception {
 		
-		String fechaAplicar = "2020-06-15 10:00:00";
-		Integer cadenaAplicar = 1;
-		Integer productoAplicar = 35455;
+		String dateApply = "2020-06-15 10:00:00";
+		Integer brandApply = 1;
+		Integer productApply = 35455;
 		
 		List<PricesBean> priceBeanList = new ArrayList<PricesBean>(); 
 		
@@ -165,12 +165,12 @@ class PriceServiceApplicationServiceLayerTests {
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(fechaAplicar, productoAplicar, cadenaAplicar))
+	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
-		ResponsePriceBean priceServiceFound = pricesService.getPriceService(fechaAplicar, productoAplicar, cadenaAplicar);			
-		Integer valorEsperadoTarifa = 3;
-		assertEquals("La tarifa devuelta no es correcta", valorEsperadoTarifa, priceServiceFound.getPriceList());
+		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
+		Integer priceListExpectedValue = 3;
+		assertEquals("La tarifa devuelta no es correcta", priceListExpectedValue, priceServiceFound.getPriceList());
 
 	}
 
@@ -179,9 +179,9 @@ class PriceServiceApplicationServiceLayerTests {
 	@Test
 	public void getPriceByFechaProductoCadena_Test05_16_06_21_00() throws Exception {
 		
-		String fechaAplicar = "2020-06-16 21:00:00";
-		Integer cadenaAplicar = 1;
-		Integer productoAplicar = 35455;
+		String dateApply = "2020-06-16 21:00:00";
+		Integer brandApply = 1;
+		Integer productApply = 35455;
 		
 		List<PricesBean> priceBeanList = new ArrayList<PricesBean>(); 
 		
@@ -207,12 +207,12 @@ class PriceServiceApplicationServiceLayerTests {
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(fechaAplicar, productoAplicar, cadenaAplicar))
+	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
-		ResponsePriceBean priceServiceFound = pricesService.getPriceService(fechaAplicar, productoAplicar, cadenaAplicar);			
-		Integer valorEsperadoTarifa = 4;
-		assertEquals("La tarifa devuelta no es correcta", valorEsperadoTarifa, priceServiceFound.getPriceList());
+		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
+		Integer priceListExpectedValue = 4;
+		assertEquals("La tarifa devuelta no es correcta", priceListExpectedValue, priceServiceFound.getPriceList());
 
 	}
 
