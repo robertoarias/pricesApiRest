@@ -1,6 +1,7 @@
 package com.capitole.priceservice.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,10 +25,10 @@ public class PricesBean implements Serializable {
 		private Integer brandId;
 
 		@Column(name = "START_DATE")
-		private String startDate;
+		private LocalDateTime  startDate;
 
 		@Column(name = "END_DATE")
-		private String endDate;
+		private LocalDateTime  endDate;
 		
 		@Column(name = "PRICE_LIST")
 		private Integer priceList;
@@ -59,22 +60,22 @@ public class PricesBean implements Serializable {
 		}
 
 
-		public String getStartDate() {
+		public LocalDateTime getStartDate() {
 			return startDate;
 		}
 
 
-		public void setStartDate(String startDate) {
+		public void setStartDate(LocalDateTime startDate) {
 			this.startDate = startDate;
 		}
 
 
-		public String getEndDate() {
+		public LocalDateTime getEndDate() {
 			return endDate;
 		}
 
 
-		public void setEndDate(String endDate) {
+		public void setEndDate(LocalDateTime endDate) {
 			this.endDate = endDate;
 		}
 

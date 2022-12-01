@@ -1,6 +1,8 @@
 package com.capitole.priceservice.service;
 
 import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,6 +22,8 @@ public class PricesServiceImpl implements PricesService {
 
 	
 	private static final Logger logger = LoggerFactory.getLogger(PricesServiceImpl.class);
+	
+	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	
 	
 
@@ -43,18 +47,20 @@ public class PricesServiceImpl implements PricesService {
 		logger.info("[getPriceService] ==> fecha = " + dateApply + " / producto = " + productId + " cadena = " + brandId);
 			
 		dateApply = DateUtils.checkDateFormat(dateApply, " 00:00:00");
+		LocalDateTime dateTimeApply = LocalDateTime.parse(dateApply, formatter);
+		
 		IntegerUtils.checkIntegerFormat(productId);
 		IntegerUtils.checkIntegerFormat(brandId);		
 			
-		List<PricesBean> priceBeanFound = priceBeanRepository.findByPrice(dateApply, productId, brandId);
+		List<PricesBean> priceBeanFound = priceBeanRepository.findByPrice(dateTimeApply, productId, brandId);
 		if (priceBeanFound != null) {
 			logger.info("[getPriceService] ==> list size = " + priceBeanFound.size());
 			priceBeanFound.forEach((price) -> {
 				Integer priority = -1;
 				if (price.getPriority() > priority) {
 					responsePrice.setBrandId(price.getBrandId());
-					responsePrice.setStartDate(price.getStartDate());
-					responsePrice.setEndDate(price.getEndDate());
+					responsePrice.setStartDate(price.getStartDate().format(formatter));
+					responsePrice.setEndDate(price.getEndDate().format(formatter));
 					responsePrice.setFinalPrice(price.getPrice());
 					responsePrice.setProductId(price.getProductId());
 					responsePrice.setPriceList(price.getPriceList());	

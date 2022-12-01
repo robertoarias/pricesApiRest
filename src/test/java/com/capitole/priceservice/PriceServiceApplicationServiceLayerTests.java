@@ -2,6 +2,8 @@ package com.capitole.priceservice;
 
 import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,8 @@ import com.capitole.priceservice.service.PricesService;
 @SpringBootTest
 class PriceServiceApplicationServiceLayerTests {
 	
+	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	
 	@Autowired
 	private PricesService pricesService;
 	
@@ -45,14 +49,14 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean.setProductId(35455);
 		pricesBean.setBrandId(1);
 		pricesBean.setPriceList(1);
-		pricesBean.setStartDate("2020-06-14 00:00:00");
-		pricesBean.setEndDate("2020-12-31 23:59:59");
+		pricesBean.setStartDate(LocalDateTime.parse("2020-06-14 00:00:00", formatter));
+		pricesBean.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean.setPrice(35.5);
 		pricesBean.setPriority(0);
 		
 		priceBeanList.add(pricesBean);
 
-	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
+	    Mockito.when(priceBeanRepository.findByPrice(LocalDateTime.parse(dateApply, formatter), productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
 		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
@@ -75,8 +79,8 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean1.setProductId(35455);
 		pricesBean1.setBrandId(1);
 		pricesBean1.setPriceList(1);
-		pricesBean1.setStartDate("2020-06-14 00:00:00");
-		pricesBean1.setEndDate("2020-12-31 23:59:59");
+		pricesBean1.setStartDate(LocalDateTime.parse("2020-06-14 00:00:00", formatter));
+		pricesBean1.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean1.setPrice(35.5);
 		pricesBean1.setPriority(0);
 
@@ -86,14 +90,14 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean2.setProductId(35455);
 		pricesBean2.setBrandId(1);
 		pricesBean2.setPriceList(2);
-		pricesBean2.setStartDate("2020-06-14 15:00:00");
-		pricesBean2.setEndDate("2020-06-14 18:30:00");
+		pricesBean2.setStartDate(LocalDateTime.parse("2020-06-14 15:00:00", formatter));
+		pricesBean2.setEndDate(LocalDateTime.parse("2020-06-14 18:30:00", formatter));
 		pricesBean2.setPrice(25.45);
 		pricesBean2.setPriority(1);
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
+	    Mockito.when(priceBeanRepository.findByPrice(LocalDateTime.parse(dateApply, formatter), productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
 		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
@@ -116,14 +120,14 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean.setProductId(35455);
 		pricesBean.setBrandId(1);
 		pricesBean.setPriceList(1);
-		pricesBean.setStartDate("2020-06-14 00:00:00");
-		pricesBean.setEndDate("2020-12-31 23:59:59");
+		pricesBean.setStartDate(LocalDateTime.parse("2020-06-14 00:00:00", formatter));
+		pricesBean.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean.setPrice(35.5);
 		pricesBean.setPriority(0);
 		
 		priceBeanList.add(pricesBean);
 
-	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
+	    Mockito.when(priceBeanRepository.findByPrice(LocalDateTime.parse(dateApply, formatter), productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
 		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
@@ -147,8 +151,8 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean1.setProductId(35455);
 		pricesBean1.setBrandId(1);
 		pricesBean1.setPriceList(1);
-		pricesBean1.setStartDate("2020-06-14 00:00:00");
-		pricesBean1.setEndDate("2020-12-31 23:59:59");
+		pricesBean1.setStartDate(LocalDateTime.parse("2020-06-14 00:00:00", formatter));
+		pricesBean1.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean1.setPrice(35.5);
 		pricesBean1.setPriority(0);
 
@@ -158,14 +162,14 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean2.setProductId(35455);
 		pricesBean2.setBrandId(1);
 		pricesBean2.setPriceList(3);
-		pricesBean2.setStartDate("2020-06-15 00:00:00");
-		pricesBean2.setEndDate("2020-06-15 11:00:00");
+		pricesBean2.setStartDate(LocalDateTime.parse("2020-06-15 00:00:00", formatter));
+		pricesBean2.setEndDate(LocalDateTime.parse("2020-06-15 11:00:00", formatter));
 		pricesBean2.setPrice(30.50);
 		pricesBean2.setPriority(1);
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
+	    Mockito.when(priceBeanRepository.findByPrice(LocalDateTime.parse(dateApply, formatter), productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
 		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
@@ -189,8 +193,8 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean1.setProductId(35455);
 		pricesBean1.setBrandId(1);
 		pricesBean1.setPriceList(1);
-		pricesBean1.setStartDate("2020-06-14 00:00:00");
-		pricesBean1.setEndDate("2020-12-31 23:59:59");
+		pricesBean1.setStartDate(LocalDateTime.parse("2020-06-14 00:00:00", formatter));
+		pricesBean1.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean1.setPrice(35.5);
 		pricesBean1.setPriority(0);
 
@@ -200,14 +204,14 @@ class PriceServiceApplicationServiceLayerTests {
 		pricesBean2.setProductId(35455);
 		pricesBean2.setBrandId(1);
 		pricesBean2.setPriceList(4);
-		pricesBean2.setStartDate("2020-06-15 16:00:00");
-		pricesBean2.setEndDate("2020-12-31 23:59:59");
+		pricesBean2.setStartDate(LocalDateTime.parse("2020-06-15 16:00:00", formatter));
+		pricesBean2.setEndDate(LocalDateTime.parse("2020-12-31 23:59:59", formatter));
 		pricesBean2.setPrice(38.95);
 		pricesBean2.setPriority(1);
 
 		priceBeanList.add(pricesBean2);
 
-	    Mockito.when(priceBeanRepository.findByPrice(dateApply, productApply, brandApply))
+	    Mockito.when(priceBeanRepository.findByPrice(LocalDateTime.parse(dateApply, formatter), productApply, brandApply))
 	      .thenReturn(priceBeanList);  
 
 		ResponsePriceBean priceServiceFound = pricesService.getPriceService(dateApply, productApply, brandApply);			
